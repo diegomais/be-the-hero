@@ -9,5 +9,6 @@ routes.post('/ngos', NgoController.create);
 
 routes.get('/incidents', IncidentController.index);
 routes.post('/incidents', IncidentController.create);
+routes.delete('/incidents/:id', IncidentController.destroy);
 
 module.exports = routes;

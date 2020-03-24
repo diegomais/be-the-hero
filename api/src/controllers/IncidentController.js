@@ -31,4 +31,26 @@ module.exports = {
 
     return res.json({ id });
   },
+
+  async destroy(req, res) {
+    const { id } = req.params;
+    const ngo_id = req.headers.authorization;
+
+    const incident = await connection('incidents')
+      .where('id', id)
+      .select('ngo_id')
+      .first();
+
+    if (!incident) {
+      return res.status(404).json({ error: 'Incident not found.' });
+    }
+
+    if (incident.ngo_id !== ngo_id) {
+      return res.status(401).json({ error: 'Operation not permitted.' });
+    }
+
+    await connection('incidents').where('id', id).delete();
+
+    return res.status(204).send();
+  },
 };
