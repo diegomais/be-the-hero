@@ -1,12 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+
+import api from '../../services/api';
 
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
 
 export default function NewIncident() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [value, setValue] = useState('');
+
+  const history = useHistory();
+
+  const ngoId = localStorage.getItem('be-the-hero-id');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = { title, description, value };
+    try {
+      await api.post('incidents', data, { headers: { Authorization: ngoId } });
+
+      history.push('/profile');
+    } catch (error) {
+      alert('There was an error. Please try again.');
+    }
+  }
+
   return (
     <div className="new-incident-container">
       <div className="content">
@@ -22,10 +45,22 @@ export default function NewIncident() {
           </Link>
         </section>
 
-        <form>
-          <input placeholder="Incident title" />
-          <textarea placeholder="Description" />
-          <input placeholder="Value" />
+        <form onSubmit={handleSubmit}>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Incident title"
+          />
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description"
+          />
+          <input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Value"
+          />
           <button className="button" type="submit">
             Register Incident
           </button>
