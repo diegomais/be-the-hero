@@ -3,6 +3,7 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
+    'jest/globals': true,
   },
   extends: ['airbnb-base', 'prettier'],
   globals: {
@@ -12,7 +13,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
-  plugins: ['prettier'],
+  plugins: ['prettier', 'jest'],
   rules: {
     // Enable eslint-plugin-prettier that formats content using Prettier
     'prettier/prettier': 'error',
@@ -24,5 +25,10 @@ module.exports = {
     camelcase: 'off',
     // Allow unused variable for next (Express middlewares needs)
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
   },
 };
