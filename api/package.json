@@ -5,7 +5,10 @@
   "author": "Diego Mais",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "dev": "nodemon src/server.js",
+    "heroku-prebuild": "npm install knex -g",
+    "heroku-postbuild": "knex migrate:latest --env production",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
@@ -14,6 +17,7 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "knex": "^0.20.13",
+    "pm2": "^4.4.1",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
