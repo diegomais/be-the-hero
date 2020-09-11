@@ -24,13 +24,16 @@ module.exports = {
   staging: {
     client: 'pg',
     connection: {
-      host:
-        process.env.DATABASE_URL ||
-        'postgres://user:secret@localhost:5432/dbname',
+      host: process.env.DATABASE_HOST || 'localhost',
+      database: process.env.DATABASE_NAME || 'dbname',
+      user: process.env.DATABASE_USER || 'user',
+      port: process.env.DATABASE_PORT || '5432',
+      password: process.env.DATABASE_PASSWORD || 'mysecretpassword',
+      ssl: { rejectUnauthorized: false },
     },
     pool: {
       min: 2,
-      max: 10,
+      max: 20,
     },
     migrations: {
       directory: './src/database/migrations',
@@ -41,13 +44,16 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host:
-        process.env.DATABASE_URL ||
-        'postgres://user:secret@localhost:5432/dbname',
+      host: process.env.DATABASE_HOST || 'localhost',
+      database: process.env.DATABASE_NAME || 'dbname',
+      user: process.env.DATABASE_USER || 'user',
+      port: process.env.DATABASE_PORT || '5432',
+      password: process.env.DATABASE_PASSWORD || 'mysecretpassword',
+      ssl: { rejectUnauthorized: false },
     },
     pool: {
       min: 2,
-      max: 10,
+      max: 20,
     },
     migrations: {
       directory: './src/database/migrations',
