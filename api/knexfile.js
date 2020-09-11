@@ -33,6 +33,7 @@ module.exports = {
       max: 10,
     },
     migrations: {
+      directory: './src/database/migrations',
       tableName: 'knex_migrations',
     },
   },
@@ -49,6 +50,7 @@ module.exports = {
       max: 10,
     },
     migrations: {
+      directory: './src/database/migrations',
       tableName: 'knex_migrations',
     },
   },
