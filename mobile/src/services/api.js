@@ -1,7 +1,8 @@
 import axios from 'axios';
+import getEnvironment from '../../environment';
 
-const api = axios.create({
-  baseURL: 'http://192.168.1.123:3333',
-});
+const { apiUrl } = getEnvironment();
+
+const api = axios.create({ baseURL: apiUrl });
 
 export default api;
