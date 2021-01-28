@@ -15,6 +15,9 @@ jobs:
   build:
 
     runs-on: ubuntu-18.04
+    
+    env:
+      working-directory: api
 
     strategy:
       matrix:
@@ -26,6 +29,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn install --frozen-lockfile
-    - run: yarn build --if-present
-    - run: yarn test
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      working-directory: ${{env.working-directory}}
+    - name: Build source code
+      run: yarn build --if-present
+      working-directory: ${{env.working-directory}}
+    - name: Run tests
+      run: yarn test
+      working-directory: ${{env.working-directory}}
