@@ -32,9 +32,6 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
       working-directory: ${{env.working-directory}}
-    - name: Build source code
-      run: yarn build --if-present
-      working-directory: ${{env.working-directory}}
     - name: Run tests
       run: yarn test
       working-directory: ${{env.working-directory}}
