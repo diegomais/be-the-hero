@@ -22,7 +22,7 @@
 <br>
 
 <p align="center">
-  <img alt="Mobile and web" src=".github/be-the-hero.png" width="100%">
+  <img alt="Mobile and web" src="assets/screen-shot.png" width="100%">
 </p>
 
 ## :rocket: Technologies
