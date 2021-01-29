@@ -8,6 +8,7 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/diegomais/be-the-hero?style=for-the-badge">
   <img alt="GitHub license" src="https://img.shields.io/github/license/diegomais/be-the-hero?style=for-the-badge">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/diegomais/be-the-hero?style=for-the-badge">
+  <img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/diegomais/be-the-hero/API%20CI?style=for-the-badge">
 </p>
 
 <p align="center">
