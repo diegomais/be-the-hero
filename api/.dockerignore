@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# docker
+Dockerfile
+
+# testing
+coverage/
+
+# version control system
+.git/
+
+# misc
+.env.example
