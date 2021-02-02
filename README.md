@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Be The Hero" src="web/src/assets/logo.svg" width="250px" /><br>
+    <img alt="Be The Hero" src="assets/logo.svg" width="250px" /><br>
     <b>Save the day!</b>🦸‍♂️
 </h1>
 
@@ -101,12 +101,12 @@ Follow the instructions for Expo CLI available in the official [Expo Documentati
 
 #### Adding environment variables
 
-1. Rename the file `environment.example.js` on `mobile` directory to `environment.js`.
+1. Rename the file `environment.example.js` on `packages/mobile` directory to `environment.js`.
 2. Add the API URL (e.g. `http://localhost:3333`) into `environment.js` file.
 
 #### Installing dependencies and running the mobile application
 
-Run the instructions bellow inside `mobile` directory:
+Run the instructions bellow inside `packages/mobile` directory:
 
 1. `npm install`
 2. `expo start`

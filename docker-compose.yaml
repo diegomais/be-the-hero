@@ -3,7 +3,7 @@ version: "3.9"
 services:
   api:
     build:
-      context: ./api
+      context: ./packages/api
       dockerfile: Dockerfile
     container_name: be-the-hero_api
     depends_on:
@@ -12,12 +12,12 @@ services:
       - 3333:3333
     restart: unless-stopped
     volumes:
-      - ./api/:/app/
+      - ./packages/api/:/app/
       - /app/node_modules/
 
   web:
     build:
-      context: ./web
+      context: ./packages/web
       dockerfile: Dockerfile
     container_name: be-the-hero_web
     ports:
@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
     stdin_open: true
     volumes:
-      - ./web/:/app/
+      - ./packages/web/:/app/
       - /app/node_modules/
 
   postgres:
