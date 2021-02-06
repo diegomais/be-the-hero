@@ -14,7 +14,7 @@
   "dependencies": {
     "celebrate": "^12.2.0",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "knex": "^0.21.15",
     "pg": "^7.18.2",
