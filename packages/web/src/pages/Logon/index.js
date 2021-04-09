@@ -38,7 +38,7 @@ export default function Logon() {
 
           <input
             value={id}
-            onChange={e => setId(e.target.value)}
+            onChange={(e) => setId(e.target.value)}
             placeholder="Your ID"
           />
           <button className="button" type="submit">
