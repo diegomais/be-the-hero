@@ -29,8 +29,3 @@ jobs:
       run: npx jest --ci --passWithNoTests
     - name: Publish a production version
       run: expo publish --release-channel=prod-v1
-    - uses: unsplash/comment-on-pr@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        msg: App is ready for review, you can [see it here](https://expo.io/@diegomais/projects/be-the-hero?release-channel=prod-v1).
