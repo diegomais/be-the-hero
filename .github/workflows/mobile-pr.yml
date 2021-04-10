@@ -33,4 +33,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        msg: App is ready for review, you can [see it here](https://expo.io/diegomais/be-the-hero?release-channel=pr-${{ github.event.number }}).
+        msg: App is ready for review, you can [see it here](https://expo.io/@diegomais/projects/be-the-hero?release-channel=pr-${{ github.event.number }}).
