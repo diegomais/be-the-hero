@@ -2,11 +2,11 @@ name: API CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
     - 'packages/api/**'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths:
     - 'packages/api/**'
   workflow_dispatch:
@@ -16,8 +16,10 @@ jobs:
 
     runs-on: ubuntu-18.04
     
-    env:
-      working-directory: packages/api
+    defaults:
+      run:
+        shell: bash
+        working-directory: packages/api
 
     strategy:
       matrix:
@@ -31,7 +33,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install --frozen-lockfile
-      working-directory: ${{env.working-directory}}
     - name: Run tests
       run: yarn test
-      working-directory: ${{env.working-directory}}

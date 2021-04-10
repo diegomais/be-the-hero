@@ -2,11 +2,11 @@ name: Web CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
     - 'packages/web/**'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths:
     - 'packages/web/**'
   workflow_dispatch:
@@ -16,8 +16,10 @@ jobs:
 
     runs-on: ubuntu-18.04
     
-    env:
-      working-directory: packages/web
+    defaults:
+      run:
+        shell: bash
+        working-directory: packages/web
 
     strategy:
       matrix:
@@ -31,7 +33,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install --frozen-lockfile
-      working-directory: ${{env.working-directory}}
     - name: Build
       run: yarn build
-      working-directory: ${{env.working-directory}}
