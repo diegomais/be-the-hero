@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier .",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "next": "10.2.0",
@@ -15,6 +18,12 @@
   "devDependencies": {
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.2.1",
     "typescript": "^4.2.4"
   }
 }
