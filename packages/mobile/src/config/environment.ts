@@ -1,9 +1,18 @@
 import Constants from 'expo-constants';
 
 const ENV = {
-  dev: { api: 'http://localhost:3333' },
-  staging: { api: 'https://diegomais-bethehero.herokuapp.com' },
-  prod: { api: 'https://diegomais-bethehero.herokuapp.com' },
+  dev: {
+    apiURL: 'http://localhost:3333',
+    email: 'diegomais.dev@gmail.com',
+  },
+  staging: {
+    apiURL: 'https://diegomais-bethehero.herokuapp.com',
+    email: 'diegomais.dev@gmail.com',
+  },
+  prod: {
+    apiURL: 'https://diegomais-bethehero.herokuapp.com',
+    email: 'diegomais.dev@gmail.com',
+  },
 };
 
 export default function getEnvironment() {

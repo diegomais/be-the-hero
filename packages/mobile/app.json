@@ -1,13 +1,7 @@
 {
   "expo": {
-    "name": "Be The Hero",
+    "name": "be-the-hero",
     "slug": "be-the-hero",
-    "privacy": "public",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +18,15 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#e02041"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "description": "Be The Hero is a project that aims to connect people interested in helping NGOs with open campaigns.",
     "githubUrl": "https://github.com/diegomais/be-the-hero"
