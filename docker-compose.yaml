@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.8'
 
 services:
   api:
@@ -15,17 +15,16 @@ services:
       - ./packages/api/:/app/
       - /app/node_modules/
 
-  web:
+  frontend:
     build:
-      context: ./packages/web
-      dockerfile: Dockerfile
-    container_name: be-the-hero_web
+      context: ./packages/frontend
+      target: deps
     ports:
       - 3000:3000
     restart: unless-stopped
     stdin_open: true
     volumes:
-      - ./packages/web/:/app/
+      - ./packages/frontend/:/app/
       - /app/node_modules/
 
   postgres:
