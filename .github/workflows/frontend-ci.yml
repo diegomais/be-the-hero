@@ -1,29 +1,28 @@
-name: Web CI
+name: Frontend CI
 
 on:
   push:
     branches: [ main ]
     paths:
-    - 'packages/web/**'
+    - 'packages/frontend/**'
   pull_request:
     branches: [ main ]
     paths:
-    - 'packages/web/**'
+    - 'packages/frontend/**'
   workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-18.04
     
     defaults:
       run:
         shell: bash
-        working-directory: packages/web
+        working-directory: packages/frontend
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -33,5 +32,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install --frozen-lockfile
+    - name: Lint
+      run: npx eslint --format=stylish .
+    - name: Format
+      run: npx prettier -c .
+    - name: Test
+      run: npx jest --ci
     - name: Build
       run: yarn build
