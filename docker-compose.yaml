@@ -17,7 +17,7 @@ services:
 
   frontend:
     build:
-      context: ./packages/frontend
+      context: ./frontend
       target: deps
     container_name: be-the-hero_frontend
     environment:
@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
     stdin_open: true
     volumes:
-      - ./packages/frontend/:/app/
+      - ./frontend/:/app/
       - /app/node_modules/
 
   postgres:
