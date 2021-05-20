@@ -10,7 +10,6 @@ services:
       - postgres
     ports:
       - 3333:3333
-    restart: unless-stopped
     volumes:
       - ./backend/:/app/
       - /app/node_modules/
@@ -24,7 +23,6 @@ services:
       NEXT_PUBLIC_API_URL: http://localhost:3333
     ports:
       - 3000:3000
-    restart: unless-stopped
     stdin_open: true
     volumes:
       - ./frontend/:/app/
@@ -39,7 +37,6 @@ services:
     image: postgres:13-alpine
     ports:
       - 5432:5432
-    restart: unless-stopped
     tty: true
     volumes:
       - postgres_data:/var/lib/postgresql/data
