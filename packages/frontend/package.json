@@ -20,7 +20,7 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.6",
+    "@testing-library/react": "11.2.7",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
