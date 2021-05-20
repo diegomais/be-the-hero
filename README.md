@@ -101,12 +101,12 @@ Follow the instructions for Expo CLI available in the official [Expo Documentati
 
 #### Adding environment variables
 
-1. Rename the file `environment.example.js` on `packages/mobile` directory to `environment.js`.
+1. Rename the file `environment.example.js` on `mobile` directory to `environment.js`.
 2. Add the API URL (e.g. `http://localhost:3333`) into `environment.js` file.
 
 #### Installing dependencies and running the mobile application
 
-Run the instructions bellow inside `packages/mobile` directory:
+Run the instructions bellow inside `mobile` directory:
 
 1. `npm install`
 2. `expo start`
