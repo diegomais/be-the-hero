@@ -3349,12 +3349,18 @@ expo-keep-awake@~9.1.2:
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-9.1.2.tgz#b3e52c7bef0ade975ae88637a2bf980f6b573368"
   integrity sha512-CCuEOQUNLYtMA0rt0sQ9u5LlIMH7lDJG7dImoorfKMsP95yHXy8dl3oCdtaz2zbsPgggVYeom9gE+gQu+Ki4rQ==
 
-expo-mail-composer@~10.1.2:
-  version "10.1.2"
-  resolved "https://registry.yarnpkg.com/expo-mail-composer/-/expo-mail-composer-10.1.2.tgz#1b3f29f08e1c59c605e9c2136a561b732de12f07"
-  integrity sha512-G9Wvl6S8ZB+tU1p5bS/Qx3O1hmv8R6HRjmrbCMxaTvnHGiQ1L8MuuAvoC7uynip5npw86JXd/BNQ6LMiQtRyzw==
+expo-mail-composer@~10.2.0:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/expo-mail-composer/-/expo-mail-composer-10.2.2.tgz#b574931aa4e8608abbc2a60d505bf51d3589bb66"
+  integrity sha512-jvIDMWgHRj4f2oD4kg5rb/rSZKatQ2Bo/U7PlUU3T/QudngAcSzE6BBWYQhTVP1sLoBGSkoDTLlxGOKQQS1JUg==
   dependencies:
+    expo-modules-core "~0.2.0"
     query-string "^6.2.0"
+
+expo-modules-core@~0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.2.0.tgz#68e5b6e53d0afbf8d131578831aed657589a2d42"
+  integrity sha512-inpfZ5X/BaTtbj2wG9PA9AC0MN8VyId6KSRlVuEg7+ziurHBy/kKDFxpOddUokhwiln2uhoYPSStJjR/tKypdw==
 
 expo-status-bar@~1.0.4:
   version "1.0.4"
