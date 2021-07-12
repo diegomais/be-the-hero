@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "next lint",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
     "type-check": "tsc --pretty --noEmit"
@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "4.26.0",
     "babel-jest": "26.6.3",
     "eslint": "7.29.0",
+    "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
