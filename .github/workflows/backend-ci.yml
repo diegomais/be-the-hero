@@ -7,6 +7,7 @@ on:
     - 'backend/**'
   pull_request:
     branches: [ main ]
+    types: [ opened, synchronize, reopened ]
     paths:
     - 'backend/**'
   workflow_dispatch:
@@ -21,17 +22,20 @@ jobs:
         shell: bash
         working-directory: backend
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: lts/*
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     - name: Run tests
-      run: yarn test
+      run: yarn test --coverage --testResultsProcessor jest-sonar-reporter
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: backend
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.BACKEND_SONAR_TOKEN }}
