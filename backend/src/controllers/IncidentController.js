@@ -16,7 +16,7 @@ module.exports = {
         'ngos.email',
         'ngos.whatsapp',
         'ngos.city',
-        'ngos.uf'
+        'ngos.state'
       );
 
     res.header('X-Total-Count', count['count(*)']);
