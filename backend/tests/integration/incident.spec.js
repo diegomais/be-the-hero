@@ -8,7 +8,7 @@ const ngo1_data = {
   email: 'contato.aufamilyabrigo@gmail.com',
   whatsapp: '91985255716',
   city: 'Belém',
-  uf: 'PA',
+  state: 'PA',
 };
 
 const incident1_data = {

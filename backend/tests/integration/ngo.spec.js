@@ -7,21 +7,21 @@ const ngo1_data = {
   email: 'ajapra@ajapra.org.br',
   whatsapp: '47916420136',
   city: 'Jaraguá do Sul',
-  uf: 'SC',
+  state: 'SC',
 };
 const ngo2_data = {
   name: 'Anjos de Patas - Proteção Animal',
   email: 'orandilia.faria@hotmail.com',
   whatsapp: '47912345678',
   city: 'Porto Belo',
-  uf: 'SC',
+  state: 'SC',
 };
 const ngo3_data = {
   name: 'Associação Viva Bicho de Proteção aos Animais',
   email: 'vivabicho@vivabicho.org',
   whatsapp: '4732631020',
   city: 'Balneário Camboriú',
-  uf: 'SC',
+  state: 'SC',
 };
 
 describe('NGO', () => {

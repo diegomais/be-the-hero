@@ -18,7 +18,7 @@ routes.post(
       email: Joi.string().required().email(),
       whatsapp: Joi.string().required().min(10).max(11),
       city: Joi.string().required(),
-      uf: Joi.string().required().length(2),
+      state: Joi.string().required().length(2),
     }),
   }),
   NgoController.create
