@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: lts/*
           cache: yarn
+          cache-dependency-path: mobile/yarn.lock
 
       - name: 🏗 Set up Expo
         uses: expo/expo-github-action@v7
