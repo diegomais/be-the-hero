@@ -1,31 +1,44 @@
 name: Mobile Publish
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
-    - 'mobile/**'
+      - 'mobile/**'
+
   workflow_dispatch:
+
 jobs:
   publish:
-    name: Install, test and publish a production version
-    runs-on: ubuntu-18.04
+    name: 👷 Install, test and publish a production version
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
         working-directory: mobile
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 14.x
-    - uses: expo/expo-github-action@v6
-      with:
-        expo-version: 4.x
-        expo-token: ${{ secrets.EXPO_TOKEN }}
-        expo-cache: true
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Test
-      run: npx jest --ci --passWithNoTests
-    - name: Publish a production version
-      run: expo publish --release-channel=prod-v1
+      - name: 🏗 Set up repository
+        uses: actions/checkout@v2
+
+      - name: 🏗 Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: 🏗 Set up Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📦 Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: ✅ Run all tests
+        run: npx jest --ci --passWithNoTests
+
+      - name: 🚀 Publish app
+        run: expo publish --non-interactive --release-channel=prod-v1
