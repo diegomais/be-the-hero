@@ -44,6 +44,8 @@ jobs:
         run: expo publish --release-channel=pr-${{ github.event.number }} --non-interactive
 
       - name: 💬 Comment preview
-        uses: expo/expo-github-action/preview-comment@v7
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          channel: pr-${{ github.event.number }}
+          msg: App is ready for review, you can [see it here](https://expo.io/@diegomais/projects/be-the-hero?release-channel=pr-${{ github.event.number }}).
