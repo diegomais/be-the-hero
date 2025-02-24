@@ -2,19 +2,19 @@ name: Frontend CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-    - 'frontend/**'
+      - "frontend/**"
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths:
-    - 'frontend/**'
+      - "frontend/**"
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    
+    runs-on: ubuntu-latest
+
     defaults:
       run:
         shell: bash
@@ -22,26 +22,26 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [22.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Lint
-      run: npx eslint --format=stylish .
-    - name: Format
-      run: npx prettier -c .
-    - name: Test
-      run: npx jest --ci
-    - name: Build
-      run: yarn build
-      env:
-        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-        SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-        SENTRY_URL: ${{ secrets.SENTRY_URL }}
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: npx eslint --format=stylish .
+      - name: Format
+        run: npx prettier -c .
+      - name: Test
+        run: npx jest --ci
+      - name: Build
+        run: yarn build
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          SENTRY_URL: ${{ secrets.SENTRY_URL }}
