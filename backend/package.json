@@ -6,9 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "heroku-prebuild": "npm install knex -g",
-    "heroku-postbuild": "knex migrate:latest --env production",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "prestart": "knex migrate:latest --env production",
+    "start": "node src/server.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
@@ -18,7 +17,6 @@
     "express": "^4.17.1",
     "knex": "^0.95.2",
     "pg": "^8.0.0",
-    "pm2": "^4.5.5",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
