@@ -1,13 +1,18 @@
-version: '3.8'
-
 services:
-  api:
+  backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      target: deps
+    command: yarn dev
     container_name: be-the-hero_backend
     depends_on:
       - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: be_the_hero
+      DATABASE_PASSWORD: secret
+      DATABASE_USER: docker
     ports:
       - 3333:3333
     volumes:
