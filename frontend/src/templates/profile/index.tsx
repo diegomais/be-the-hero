@@ -64,6 +64,7 @@ export default function ProfileTemplate({
               type="button"
             >
               <FiTrash2 size={20} color="#a8a8b3" />
+              <span className="sr-only">Delete</span>
             </button>
           </li>
         ))}
