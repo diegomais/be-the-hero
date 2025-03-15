@@ -12,13 +12,15 @@ interface Incident {
 interface Props {
   incidents: Incident[]
   ngoName: string
+  onIncidentDelete(id: string): void
+  onLogout(): void
 }
 
 export default function ProfileTemplate({
-  handleDeleteIncident,
-  handleLogout,
   incidents,
   ngoName,
+  onIncidentDelete,
+  onLogout,
 }: Props) {
   return (
     <div className={s.container}>
@@ -31,11 +33,7 @@ export default function ProfileTemplate({
           Register New Incident
         </Link>
 
-        <button
-          onClick={handleLogout}
-          type="button"
-          data-testid="logout-button"
-        >
+        <button onClick={onLogout} type="button" data-testid="logout-button">
           <FiPower size={20} color="#E02041" />
         </button>
       </header>
@@ -59,10 +57,7 @@ export default function ProfileTemplate({
               }).format(incident.value)}
             </p>
 
-            <button
-              onClick={() => handleDeleteIncident(incident.id)}
-              type="button"
-            >
+            <button onClick={() => onIncidentDelete(incident.id)} type="button">
               <FiTrash2 size={20} color="#a8a8b3" />
               <span className="sr-only">Delete</span>
             </button>

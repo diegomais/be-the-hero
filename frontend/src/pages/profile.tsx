@@ -66,8 +66,8 @@ export default function ProfilePage() {
 
   return (
     <ProfileTemplate
-      handleDeleteIncident={handleDeleteIncident}
-      handleLogout={handleLogout}
+      onIncidentDelete={handleDeleteIncident}
+      onLogout={handleLogout}
       incidents={incidents}
       ngoName={ngoName}
     />

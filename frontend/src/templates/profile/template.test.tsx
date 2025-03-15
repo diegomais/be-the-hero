@@ -9,8 +9,8 @@ describe('<ProfileTemplate />', () => {
   it('should call handleLogout when logout button is clicked', () => {
     render(
       <ProfileTemplate
-        handleDeleteIncident={mockedDeleteIncident}
-        handleLogout={mockedLogout}
+        onIncidentDelete={mockedDeleteIncident}
+        onLogout={mockedLogout}
         incidents={[]}
         ngoName="some-ngo"
       />
