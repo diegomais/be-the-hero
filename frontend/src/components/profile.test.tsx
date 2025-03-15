@@ -18,7 +18,7 @@ describe('<ProfileTemplate />', () => {
 
     expect(mockedLogout).not.toBeCalled()
 
-    fireEvent.click(screen.getByTestId('logout-button'))
+    fireEvent.click(screen.getByRole('button', { name: /log out/i }))
 
     expect(mockedLogout).toBeCalled()
   })
