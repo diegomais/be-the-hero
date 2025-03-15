@@ -1,12 +1,13 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import ProfileTemplate from '.'
 
-const mockedDeleteIncident = jest.fn()
-const mockedLogout = jest.fn()
+const mockedDeleteIncident = vi.fn()
+const mockedLogout = vi.fn()
 
 describe('<ProfileTemplate />', () => {
   it('should call handleLogout when logout button is clicked', () => {
-    const { getByTestId } = render(
+    render(
       <ProfileTemplate
         handleDeleteIncident={mockedDeleteIncident}
         handleLogout={mockedLogout}
@@ -17,7 +18,7 @@ describe('<ProfileTemplate />', () => {
 
     expect(mockedLogout).not.toBeCalled()
 
-    fireEvent.click(getByTestId('logout-button'))
+    fireEvent.click(screen.getByTestId('logout-button'))
 
     expect(mockedLogout).toBeCalled()
   })

@@ -1,33 +1,56 @@
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
-import * as localStorageKeys from '../constants/local-storage'
-import api from '../services/api'
-import ProfileTemplate from '../templates/profile'
 
-export default function ProfilePage(): JSX.Element {
+import { baseURL } from '@/constants/api'
+import * as localStorageKeys from '@/constants/local-storage'
+import ProfileTemplate from '@/templates/profile'
+
+interface Incident {
+  description: string
+  id: string
+  ngo_id: string
+  title: string
+  value: number
+}
+
+export default function ProfilePage() {
   const router = useRouter()
+  const [incidents, setIncidents] = useState<Incident[]>([])
   const [ngoId, setNgoId] = useState('')
-  const [incidents, setIncidents] = useState([])
   const [ngoName, setNgoName] = useState('')
 
   useEffect(() => {
-    setNgoId(localStorage.getItem(localStorageKeys.ID))
-    setNgoName(localStorage.getItem(localStorageKeys.NAME))
+    setNgoId(localStorage.getItem(localStorageKeys.ID) ?? '')
+    setNgoName(localStorage.getItem(localStorageKeys.NAME) ?? '')
   }, [])
 
   useEffect(() => {
-    api
-      .get('profile', { headers: { Authorization: ngoId } })
+    if (!ngoId) return
+
+    fetch(`${baseURL}/profile`, {
+      headers: { Authorization: ngoId },
+    })
       .then((response) => {
-        setIncidents(response.data || [])
+        if (response.ok) {
+          response.json().then((data) => {
+            setIncidents(data || [])
+          })
+        }
+      })
+      .catch((error) => {
+        alert('There was an error fetching the incidents, please try again.')
+        console.error(error)
       })
   }, [ngoId])
 
   const handleDeleteIncident = useCallback(
     async (id: string) => {
+      if (!ngoId) return
+
       try {
-        await api.delete(`incidents/${id}`, {
-          headers: { Authorization: ngoId },
+        await fetch(`${baseURL}/incidents/${id}`, {
+          method: 'DELETE',
+          headers: { Authorization: ngoId, 'Content-Type': 'application/json' },
         })
 
         setIncidents((prevIncidents) =>
@@ -35,6 +58,7 @@ export default function ProfilePage(): JSX.Element {
         )
       } catch (error) {
         alert('There was an error removing the incident, please try again.')
+        console.error(error)
       }
     },
     [ngoId]

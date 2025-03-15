@@ -3,13 +3,11 @@ import { FormEvent, useCallback, useState } from 'react'
 import { FiLogIn } from 'react-icons/fi'
 import s from './styles.module.css'
 
-export type SignInTemplateProps = {
+interface Props {
   onSubmit(data: { id: string }): void
 }
 
-export default function SignInTemplate({
-  onSubmit,
-}: SignInTemplateProps): JSX.Element {
+export default function SignInTemplate({ onSubmit }: Props) {
   const [id, setId] = useState('')
 
   const handleSubmit = useCallback(
@@ -38,11 +36,9 @@ export default function SignInTemplate({
             Sign In
           </button>
 
-          <Link href="/register">
-            <a className="back-link">
-              <FiLogIn size={16} color="#E02041" />
-              Create Your Profile
-            </a>
+          <Link href="/register" className="back-link">
+            <FiLogIn size={16} color="#E02041" />
+            Create Your Profile
           </Link>
         </form>
       </section>

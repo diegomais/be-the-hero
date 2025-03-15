@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { FormEvent, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 import s from './styles.module.css'
 
-export type SignUpTemplateProps = {
+interface Props {
   onSubmit(data: {
     name: string
     email: string
@@ -13,9 +13,7 @@ export type SignUpTemplateProps = {
   }): void
 }
 
-export default function SignUpTemplate({
-  onSubmit,
-}: SignUpTemplateProps): JSX.Element {
+export default function SignUpTemplate({ onSubmit }: Props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
@@ -23,9 +21,8 @@ export default function SignUpTemplate({
   const [state, setState] = useState('')
 
   const handleSubmit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
+    (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-
       onSubmit({ city, email, name, state, whatsapp })
     },
     [city, email, name, onSubmit, state, whatsapp]
@@ -44,11 +41,9 @@ export default function SignUpTemplate({
             your NGO.
           </p>
 
-          <Link href="/">
-            <a className="back-link">
-              <FiArrowLeft size={16} color="#E02041" />
-              Sign In
-            </a>
+          <Link href="/" className="back-link">
+            <FiArrowLeft size={16} color="#E02041" />
+            Sign In
           </Link>
         </section>
 

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 import s from './styles.module.css'
 
-export type ProfileTemplateProps = {
+interface Props {
   handleDeleteIncident(id: string): void
   handleLogout(): void
   incidents: Array<{
@@ -19,7 +19,7 @@ export default function ProfileTemplate({
   handleLogout,
   incidents,
   ngoName,
-}: ProfileTemplateProps): JSX.Element {
+}: Props) {
   return (
     <div className={s.container}>
       <header className={s.header}>
@@ -27,8 +27,8 @@ export default function ProfileTemplate({
 
         <span className={s.welcome}>Welcome, {ngoName}</span>
 
-        <Link href="/incidents/new">
-          <a className="button">Register New Incident</a>
+        <Link href="/incidents/new" className="button">
+          Register New Incident
         </Link>
 
         <button
