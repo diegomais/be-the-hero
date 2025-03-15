@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "type-check": "tsc --pretty --noEmit"
+    "type-check": "tsc --pretty --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "next": "15.2.2",
@@ -17,7 +20,15 @@
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3",
     "@eslint/eslintrc": "^3",
+    "@storybook/addon-essentials": "^8.6.6",
+    "@storybook/addon-interactions": "^8.6.6",
+    "@storybook/addon-onboarding": "^8.6.6",
+    "@storybook/blocks": "^8.6.6",
+    "@storybook/nextjs": "^8.6.6",
+    "@storybook/react": "^8.6.6",
+    "@storybook/test": "^8.6.6",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
@@ -25,9 +36,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^11.27.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "eslint-plugin-storybook": "^0.11.4",
     "jsdom": "^26.0.0",
+    "storybook": "^8.6.6",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
