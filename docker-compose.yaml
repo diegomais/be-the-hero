@@ -23,7 +23,7 @@ services:
     build:
       context: ./frontend
       target: deps
-    command: yarn dev
+    command: pnpm dev
     container_name: be-the-hero_frontend
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:3333

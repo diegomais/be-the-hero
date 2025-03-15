@@ -1,23 +1,20 @@
 import Link from 'next/link'
-import { FormEvent, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 import s from './styles.module.css'
 
-export type CreateIncidentTemplateProps = {
+interface Props {
   onSubmit(data: { description: string; title: string; value: string }): void
 }
 
-export default function CreateIncidentTemplate({
-  onSubmit,
-}: CreateIncidentTemplateProps): JSX.Element {
+export default function CreateIncidentTemplate({ onSubmit }: Props) {
   const [description, setDescription] = useState('')
   const [title, setTitle] = useState('')
   const [value, setValue] = useState('')
 
   const handleSubmit = useCallback(
-    async (e: FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-
       onSubmit({ description, title, value })
     },
     [description, onSubmit, title, value]
@@ -35,11 +32,9 @@ export default function CreateIncidentTemplate({
             Describe the incident in detail to find a hero to solve it.
           </p>
 
-          <Link href="/profile">
-            <a className="back-link">
-              <FiArrowLeft size={16} color="#E02041" />
-              Back to Profile
-            </a>
+          <Link href="/profile" className="back-link">
+            <FiArrowLeft size={16} color="#E02041" />
+            Back to Profile
           </Link>
         </section>
 
