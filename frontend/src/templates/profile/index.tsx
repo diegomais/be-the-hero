@@ -2,15 +2,15 @@ import Link from 'next/link'
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 import s from './styles.module.css'
 
+interface Incident {
+  id: string
+  description: string
+  title: string
+  value: number
+}
+
 interface Props {
-  handleDeleteIncident(id: string): void
-  handleLogout(): void
-  incidents: Array<{
-    id: string
-    description: string
-    title: string
-    value: number
-  }>
+  incidents: Incident[]
   ngoName: string
 }
 
