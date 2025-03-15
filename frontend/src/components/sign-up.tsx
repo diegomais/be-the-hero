@@ -1,7 +1,8 @@
-import Link from 'next/link'
 import { useCallback, useState } from 'react'
-import { FiArrowLeft } from 'react-icons/fi'
-import s from './styles.module.css'
+
+import BackLink from '@/components/ui/back-link'
+import Button from '@/components/ui/button'
+import Input from '@/components/ui/input'
 
 interface Props {
   onSubmit(data: {
@@ -25,66 +26,68 @@ export default function SignUpTemplate({ onSubmit }: Props) {
       e.preventDefault()
       onSubmit({ city, email, name, state, whatsapp })
     },
-    [city, email, name, onSubmit, state, whatsapp]
+    [city, email, name, onSubmit, state, whatsapp],
   )
 
   return (
-    <div className={s.container}>
-      <div className={s.content}>
-        <section className={s.section}>
+    <div className="container mx-auto flex min-h-svh items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-between gap-8 rounded-lg bg-gray-100 p-24 shadow-xl md:flex-row">
+        <section className="w-full max-w-96">
           <img src="images/logo.svg" alt="Logo" />
 
-          <h1 className={s.heading}>Sign Up</h1>
+          <h1 className="mt-16 mb-8 text-3xl font-bold">Sign Up</h1>
 
-          <p className={s.paragraph}>
+          <p className="text-lg/8 text-zinc-500">
             Sign up, enter the platform and help people discover incidents in
             your NGO.
           </p>
 
-          <Link href="/" className="back-link">
-            <FiArrowLeft size={16} color="#E02041" />
+          <BackLink.Root href="/">
+            <BackLink.Icon />
             Sign In
-          </Link>
+          </BackLink.Root>
         </section>
 
-        <form className={s.form} onSubmit={handleSubmit}>
-          <input
+        <form className="w-full max-w-md" onSubmit={handleSubmit}>
+          <Input
             placeholder="Name of NGO"
-            onChange={(e) => setName(e.target.value)}
             value={name}
+            onChange={(e) => setName(e.target.value)}
           />
 
-          <input
+          <Input
+            className="mt-2"
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
             type="email"
             value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
-          <input
+          <Input
+            className="mt-2"
             placeholder="WhatsApp"
-            onChange={(e) => setWhatsapp(e.target.value)}
             value={whatsapp}
+            onChange={(e) => setWhatsapp(e.target.value)}
           />
 
-          <div className={s.group}>
-            <input
+          <div className="mt-2 flex gap-2">
+            <Input
               placeholder="City"
-              onChange={(e) => setCity(e.target.value)}
               value={city}
+              onChange={(e) => setCity(e.target.value)}
             />
 
-            <input
-              className={s.state}
+            <Input
+              className="w-1/3"
               placeholder="State"
-              onChange={(e) => setState(e.target.value)}
               value={state}
+              onChange={(e) => setState(e.target.value)}
             />
           </div>
 
-          <button className="button" type="submit">
+          <Button type="submit" className="mt-4">
             Sign Up
-          </button>
+          </Button>
         </form>
       </div>
     </div>

@@ -1,9 +1,10 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
 
+import CreateIncidentTemplate from '@/components/incident-create'
 import { baseURL } from '@/constants/api'
 import * as localStorageKeys from '@/constants/local-storage'
-import CreateIncidentTemplate from '@/templates/incident-create'
 
 export default function CreateIncidentPage() {
   const router = useRouter()
@@ -29,8 +30,15 @@ export default function CreateIncidentPage() {
         console.error(error)
       }
     },
-    [ngoId, router]
+    [ngoId, router],
   )
 
-  return <CreateIncidentTemplate onSubmit={handleSubmit} />
+  return (
+    <>
+      <Head>
+        <title>Be The Hero</title>
+      </Head>
+      <CreateIncidentTemplate onSubmit={handleSubmit} />
+    </>
+  )
 }

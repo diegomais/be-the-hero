@@ -1,11 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 
-import CreateIncidentTemplate from '.'
+import CreateIncidentTemplate from './incident-create'
 
 const meta = {
   title: 'Templates/CreateIncident',
   component: CreateIncidentTemplate,
+  decorators: [
+    (Story) => (
+      <div className="bg-gray-100 antialiased">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'fullscreen',
   },

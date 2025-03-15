@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import CreateIncidentTemplate from '.'
+import CreateIncidentTemplate from './incident-create'
 
 describe('<CreateIncidentTemplate />', () => {
   it('should call onSubmit with filled data when clicked', () => {

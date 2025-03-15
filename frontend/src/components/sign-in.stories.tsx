@@ -1,11 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 
-import SignInTemplate from '.'
+import SignInTemplate from './sign-in'
 
 const meta = {
   title: 'Templates/SignIn',
   component: SignInTemplate,
+  decorators: [
+    (Story) => (
+      <div className="bg-gray-100 antialiased">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'fullscreen',
   },

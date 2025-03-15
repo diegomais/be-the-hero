@@ -1,9 +1,10 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
 
+import ProfileTemplate from '@/components/profile'
 import { baseURL } from '@/constants/api'
 import * as localStorageKeys from '@/constants/local-storage'
-import ProfileTemplate from '@/templates/profile'
 
 type Incidents = React.ComponentProps<typeof ProfileTemplate>['incidents']
 
@@ -48,14 +49,14 @@ export default function ProfilePage() {
         })
 
         setIncidents((prevIncidents) =>
-          prevIncidents.filter((incident) => incident.id !== id)
+          prevIncidents.filter((incident) => incident.id !== id),
         )
       } catch (error) {
         alert('There was an error removing the incident, please try again.')
         console.error(error)
       }
     },
-    [ngoId]
+    [ngoId],
   )
 
   const handleLogout = useCallback(() => {
@@ -65,11 +66,16 @@ export default function ProfilePage() {
   }, [router])
 
   return (
-    <ProfileTemplate
-      onIncidentDelete={handleDeleteIncident}
-      onLogout={handleLogout}
-      incidents={incidents}
-      ngoName={ngoName}
-    />
+    <>
+      <Head>
+        <title>Be The Hero</title>
+      </Head>
+      <ProfileTemplate
+        onIncidentDelete={handleDeleteIncident}
+        onLogout={handleLogout}
+        incidents={incidents}
+        ngoName={ngoName}
+      />
+    </>
   )
 }

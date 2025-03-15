@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import ProfileTemplate from '.'
+import ProfileTemplate from './profile'
 
 const mockedDeleteIncident = vi.fn()
 const mockedLogout = vi.fn()
@@ -13,12 +13,12 @@ describe('<ProfileTemplate />', () => {
         onLogout={mockedLogout}
         incidents={[]}
         ngoName="some-ngo"
-      />
+      />,
     )
 
     expect(mockedLogout).not.toBeCalled()
 
-    fireEvent.click(screen.getByTestId('logout-button'))
+    fireEvent.click(screen.getByRole('button', { name: /log out/i }))
 
     expect(mockedLogout).toBeCalled()
   })

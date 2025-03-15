@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import SignInTemplate from '.'
+import SignInTemplate from './sign-in'
 
 const mockedOnSubmit = vi.fn()
 
