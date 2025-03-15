@@ -78,3 +78,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} test
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: frontend

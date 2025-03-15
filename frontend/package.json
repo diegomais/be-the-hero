@@ -10,7 +10,8 @@
     "test": "vitest",
     "type-check": "tsc --pretty --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "next": "15.2.2",
@@ -35,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^11.27.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "eslint-plugin-storybook": "^0.11.4",
