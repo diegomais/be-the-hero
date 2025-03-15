@@ -1,11 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 
-import ProfileTemplate from '.'
+import ProfileTemplate from './profile'
 
 const meta = {
   title: 'Templates/Profile',
   component: ProfileTemplate,
+  decorators: [
+    (Story) => (
+      <div className="bg-gray-100 antialiased">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'fullscreen',
   },
@@ -51,7 +58,7 @@ export const DeleteIncident: Story = {
 
     const [firstDeleteButton, secondDeleteButton] = canvas.getAllByRole(
       'button',
-      { name: /delete/i }
+      { name: /delete/i },
     )
     await expect(firstDeleteButton).toBeInTheDocument()
     await expect(secondDeleteButton).toBeInTheDocument()
@@ -60,8 +67,8 @@ export const DeleteIncident: Story = {
     await waitFor(() =>
       expect(args.onIncidentDelete).toHaveBeenNthCalledWith(
         1,
-        args.incidents[0].id
-      )
+        args.incidents[0].id,
+      ),
     )
   },
 }

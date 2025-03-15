@@ -1,9 +1,10 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
+import SignUpTemplate from '@/components/sign-up'
 import { baseURL } from '@/constants/api'
 import * as localStorageKeys from '@/constants/local-storage'
-import SignUpTemplate from '@/templates/sign-up'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -27,7 +28,7 @@ export default function RegisterPage() {
         const { id, name } = await response.json()
 
         alert(
-          `Your access ID: ${id}. Write it down because it is necessary to access the platform.`
+          `Your access ID: ${id}. Write it down because it is necessary to access the platform.`,
         )
 
         localStorage.setItem(localStorageKeys.ID, id)
@@ -39,8 +40,15 @@ export default function RegisterPage() {
         alert('There was a problem. Please try again later.')
       }
     },
-    [router]
+    [router],
   )
 
-  return <SignUpTemplate onSubmit={handleSubmit} />
+  return (
+    <>
+      <Head>
+        <title>Be The Hero</title>
+      </Head>
+      <SignUpTemplate onSubmit={handleSubmit} />
+    </>
+  )
 }

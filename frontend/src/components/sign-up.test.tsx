@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import SignUpTemplate from '.'
+import SignUpTemplate from './sign-up'
 
 describe('<SignUpTemplate />', () => {
   it.skip('should call onSubmit with filled data when clicked', async () => {

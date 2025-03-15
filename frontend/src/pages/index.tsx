@@ -1,9 +1,10 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
+import SignInTemplate from '@/components/sign-in'
 import { baseURL } from '@/constants/api'
 import * as localStorageKeys from '@/constants/local-storage'
-import SignInTemplate from '@/templates/sign-in'
 
 export default function HomePage() {
   const router = useRouter()
@@ -27,8 +28,15 @@ export default function HomePage() {
         console.error(error)
       }
     },
-    [router]
+    [router],
   )
 
-  return <SignInTemplate onSubmit={handleLogin} />
+  return (
+    <>
+      <Head>
+        <title>Be The Hero</title>
+      </Head>
+      <SignInTemplate onSubmit={handleLogin} />
+    </>
+  )
 }
