@@ -35,6 +35,7 @@ export default function ProfileTemplate({
 
         <button onClick={onLogout} type="button" data-testid="logout-button">
           <FiPower size={20} color="#E02041" />
+          <span className="sr-only">Log Out</span>
         </button>
       </header>
 
