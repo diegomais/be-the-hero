@@ -5,17 +5,11 @@ import { baseURL } from '@/constants/api'
 import * as localStorageKeys from '@/constants/local-storage'
 import ProfileTemplate from '@/templates/profile'
 
-interface Incident {
-  description: string
-  id: string
-  ngo_id: string
-  title: string
-  value: number
-}
+type Incidents = React.ComponentProps<typeof ProfileTemplate>['incidents']
 
 export default function ProfilePage() {
   const router = useRouter()
-  const [incidents, setIncidents] = useState<Incident[]>([])
+  const [incidents, setIncidents] = useState<Incidents>([])
   const [ngoId, setNgoId] = useState('')
   const [ngoName, setNgoName] = useState('')
 
