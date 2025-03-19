@@ -65,4 +65,10 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Run tests
-        run: ${{ steps.detect-package-manager.outputs.runner }} test
+        run: ${{ steps.detect-package-manager.outputs.runner }} test:cov
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        with:
+          projectBaseDir: backend
+        env:
+          SONAR_TOKEN: ${{ secrets.BACKEND_SONAR_TOKEN }}
