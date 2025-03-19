@@ -23,9 +23,6 @@ importers:
       pg:
         specifier: ^8.0.0
         version: 8.5.1
-      sqlite3:
-        specifier: ^5.0.0
-        version: 5.1.7
     devDependencies:
       cross-env:
         specifier: ^7.0.3
@@ -63,6 +60,9 @@ importers:
       prettier:
         specifier: 2.5.1
         version: 2.5.1
+      sqlite3:
+        specifier: ^5.1.7
+        version: 5.1.7
       supertest:
         specifier: 6.1.6
         version: 6.1.6
@@ -2010,10 +2010,6 @@ packages:
 
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
-    engines: {node: '>= 0.6'}
-
-  negotiator@0.6.4:
-    resolution: {integrity: sha512-myRT3DiWPHqho5PrJaIRyaMv2kgYf0mUVgBNOYMuCH5Ki1yEiQaf/ZJuQ62nvpc44wL5WDbTX7yGJi1Neevw8w==}
     engines: {node: '>= 0.6'}
 
   node-abi@3.74.0:
@@ -5093,7 +5089,7 @@ snapshots:
       minipass-fetch: 1.4.1
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
-      negotiator: 0.6.4
+      negotiator: 0.6.3
       promise-retry: 2.0.1
       socks-proxy-agent: 6.2.1
       ssri: 8.0.1
@@ -5200,9 +5196,6 @@ snapshots:
   natural-compare@1.4.0: {}
 
   negotiator@0.6.3: {}
-
-  negotiator@0.6.4:
-    optional: true
 
   node-abi@3.74.0:
     dependencies:

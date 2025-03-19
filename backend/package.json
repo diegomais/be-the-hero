@@ -15,8 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.20.0",
     "knex": "^2.4.0",
-    "pg": "^8.0.0",
-    "sqlite3": "^5.0.0"
+    "pg": "^8.0.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -31,6 +30,7 @@
     "jest-sonar-reporter": "2.0.0",
     "nodemon": "2.0.15",
     "prettier": "2.5.1",
+    "sqlite3": "^5.1.7",
     "supertest": "6.1.6"
   },
   "jest": {
