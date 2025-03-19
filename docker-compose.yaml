@@ -3,7 +3,7 @@ services:
     build:
       context: ./backend
       target: deps
-    command: yarn dev
+    command: pnpm dev
     container_name: be-the-hero_backend
     depends_on:
       - postgres

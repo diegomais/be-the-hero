@@ -1,4 +1,3 @@
-# Set base image
 FROM node:22-alpine AS base
 
 # Install dependencies only when needed
@@ -6,24 +5,27 @@ FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
 
-# Production image, copy all the files and run app
-FROM base
+# Rebuild the source code only when needed
+FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN corepack enable pnpm && pnpm run build
 
-ENV DATABASE_HOST=postgres
-ENV DATABASE_PORT=5432
-ENV DATABASE_NAME=be_the_hero
-ENV DATABASE_PASSWORD=postgres
-ENV DATABASE_USER=postgres
-ENV NODE_ENV="production"
+# Production image, copy all the files and run express
+FROM base AS runner
+WORKDIR /app
 ENV HOSTNAME="0.0.0.0"
+ENV NODE_ENV=production
 ENV PORT=3333
-
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm && pnpm install --frozen-lockfile --prod
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 express
+COPY --from=builder --chown=express:nodejs /app/dist ./dist
+USER express
 EXPOSE 3333
-
-CMD ["yarn", "start"]
+CMD ["node", "dist/http/server.js"]
