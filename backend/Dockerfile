@@ -28,4 +28,4 @@ RUN adduser --system --uid 1001 express
 COPY --from=builder --chown=express:nodejs /app/dist ./dist
 USER express
 EXPOSE 3333
-CMD ["node", "dist/http/server.js"]
+CMD ["node", "dist/src/server.js"]

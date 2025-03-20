@@ -1,4 +1,6 @@
-exports.up = function (knex) {
+import { Knex } from "knex";
+
+export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('ngos', function (table) {
     table.string('id').primary();
     table.string('name').notNullable();
@@ -7,8 +9,8 @@ exports.up = function (knex) {
     table.string('city').notNullable();
     table.string('state', 2).notNullable();
   });
-};
+}
 
-exports.down = function (knex) {
+export async function down(knex: Knex): Promise<void> {
   return knex.schema.dropTable('ngos');
-};
+}

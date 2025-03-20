@@ -1,4 +1,6 @@
-module.exports = {
+import type { Knex } from "knex";
+
+const config: Record<string, Knex.Config> = {
   development: {
     client: 'sqlite3',
     connection: {
@@ -27,7 +29,7 @@ module.exports = {
       host: process.env.DATABASE_HOST || 'localhost',
       database: process.env.DATABASE_NAME || 'dbname',
       user: process.env.DATABASE_USER || 'user',
-      port: process.env.DATABASE_PORT || '5432',
+      port: Number(process.env.DATABASE_PORT || '5432'),
       password: process.env.DATABASE_PASSWORD || 'mysecretpassword',
       ssl: { rejectUnauthorized: false },
     },
@@ -47,7 +49,7 @@ module.exports = {
       host: process.env.DATABASE_HOST || 'localhost',
       database: process.env.DATABASE_NAME || 'dbname',
       user: process.env.DATABASE_USER || 'user',
-      port: process.env.DATABASE_PORT || '5432',
+      port: Number(process.env.DATABASE_PORT || '5432'),
       password: process.env.DATABASE_PASSWORD || 'mysecretpassword',
       ssl: { rejectUnauthorized: false },
     },
@@ -61,3 +63,5 @@ module.exports = {
     },
   },
 };
+
+export default config;
