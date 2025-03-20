@@ -15,16 +15,26 @@
       "backgroundColor": "#e02041"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.diegomais.bethehero",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#e02041"
-      }
+      },
+      "package": "com.diegomais.bethehero"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e33f62fe-62b7-40a5-941d-1a0b7a6fabe8"
+      }
     }
   }
 }
