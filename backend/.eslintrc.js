@@ -23,8 +23,6 @@ module.exports = {
     'no-param-reassign': 'off',
     // Don't require CamelCase
     camelcase: 'off',
-    // Allow unused variable for next (Express middlewares needs)
-    'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
