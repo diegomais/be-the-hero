@@ -1,6 +1,7 @@
-const request = require('supertest');
-const app = require('../../src/app');
-const connection = require('../../src/database/connection');
+import request from 'supertest';
+
+import app from '@/app';
+import connection from '@/database/connection';
 
 describe('/sessions', () => {
   beforeAll(async () => {

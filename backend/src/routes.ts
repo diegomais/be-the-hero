@@ -1,9 +1,10 @@
-const express = require('express');
-const { celebrate, Segments, Joi } = require('celebrate');
-const NgoController = require('./controllers/NgoController');
-const IncidentController = require('./controllers/IncidentController');
-const ProfileController = require('./controllers/ProfileController');
-const SessionController = require('./controllers/SessionController');
+import { celebrate, Joi, Segments } from 'celebrate';
+import express from 'express';
+
+import IncidentController from '@/controllers/incidents.controller';
+import NgoController from '@/controllers/ngos.controller';
+import ProfileController from '@/controllers/profile.controller';
+import SessionController from '@/controllers/sessions.controller';
 
 const routes = express.Router();
 
@@ -54,4 +55,4 @@ routes.delete(
   IncidentController.destroy
 );
 
-module.exports = routes;
+export default routes;
