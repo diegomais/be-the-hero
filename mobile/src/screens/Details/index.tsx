@@ -1,21 +1,17 @@
 import { Feather } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, type StaticScreenProps } from '@react-navigation/native';
 import { composeAsync } from 'expo-mail-composer';
-import React, { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Image, Linking, Text, TouchableOpacity, View } from 'react-native';
-import getEnvironment from '../../config/environment';
-import { Incident } from '../../types/incident';
+
+import type { Incident } from '@/types/incident';
 import s from './styles';
 
-type RouteParams = {
-  incident: Incident;
-};
+type Props = StaticScreenProps<{ incident: Incident }>;
 
-export default function Details() {
-  const { email } = getEnvironment();
+export default function Details({ route }: Props) {
   const { goBack } = useNavigation();
-  const { params } = useRoute();
-  const { incident } = params as RouteParams;
+  const { incident } = route.params;
 
   const message = useMemo(
     () =>
@@ -27,19 +23,19 @@ export default function Details() {
         style: 'currency',
         currency: 'BRL',
       }).format(incident.value)}.`,
-    []
+    [],
   );
 
   const sendWhatsApp = useCallback(() => {
     Linking.openURL(
-      `whatsapp://send?phone=55${incident.whatsapp}&text=${message}`
+      `whatsapp://send?phone=55${incident.whatsapp}&text=${message}`,
     );
   }, []);
 
   const sendMail = useCallback(() => {
     composeAsync({
       subject: `Hero of "${incident.title}"`,
-      recipients: [email],
+      recipients: [incident.email],
       body: message,
     });
   }, []);
