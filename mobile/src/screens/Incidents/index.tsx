@@ -1,10 +1,11 @@
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
-import { DETAILS } from '../../config/routes';
-import api from '../../services/api';
-import { Incident } from '../../types/incident';
+
+import { DETAILS } from '@/config/routes';
+import api from '@/services/api';
+import type { Incident } from '@/types/incident';
 import s from './styles';
 
 export default function Incidents() {
