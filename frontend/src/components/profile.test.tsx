@@ -13,7 +13,7 @@ describe('<ProfileTemplate />', () => {
         onLogout={mockedLogout}
         incidents={[]}
         ngoName="some-ngo"
-      />,
+      />
     )
 
     expect(mockedLogout).not.toBeCalled()

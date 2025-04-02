@@ -10,7 +10,7 @@ function BackLinkRoot({
     <Link
       className={cn(
         'mt-10 flex items-center text-lg font-medium text-zinc-800 transition-opacity hover:opacity-80',
-        className,
+        className
       )}
       {...props}
     />

@@ -28,7 +28,7 @@ export default function HomePage() {
         console.error(error)
       }
     },
-    [router],
+    [router]
   )
 
   return (

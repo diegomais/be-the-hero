@@ -19,7 +19,7 @@ export default function CreateIncidentTemplate({ onSubmit }: Props) {
       e.preventDefault()
       onSubmit({ description, title, value })
     },
-    [description, onSubmit, title, value],
+    [description, onSubmit, title, value]
   )
 
   return (

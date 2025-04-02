@@ -8,7 +8,7 @@ export default function Button({
     <button
       className={cn(
         'flex h-15 w-full cursor-pointer items-center justify-center rounded-lg bg-rose-600 p-6 text-lg font-bold text-white transition-all duration-200 hover:brightness-90',
-        className,
+        className
       )}
       {...props}
     />
