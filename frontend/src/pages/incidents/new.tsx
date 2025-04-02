@@ -30,7 +30,7 @@ export default function CreateIncidentPage() {
         console.error(error)
       }
     },
-    [ngoId, router],
+    [ngoId, router]
   )
 
   return (

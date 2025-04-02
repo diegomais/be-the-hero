@@ -49,14 +49,14 @@ export default function ProfilePage() {
         })
 
         setIncidents((prevIncidents) =>
-          prevIncidents.filter((incident) => incident.id !== id),
+          prevIncidents.filter((incident) => incident.id !== id)
         )
       } catch (error) {
         alert('There was an error removing the incident, please try again.')
         console.error(error)
       }
     },
-    [ngoId],
+    [ngoId]
   )
 
   const handleLogout = useCallback(() => {

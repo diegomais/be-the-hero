@@ -28,7 +28,7 @@ export default function RegisterPage() {
         const { id, name } = await response.json()
 
         alert(
-          `Your access ID: ${id}. Write it down because it is necessary to access the platform.`,
+          `Your access ID: ${id}. Write it down because it is necessary to access the platform.`
         )
 
         localStorage.setItem(localStorageKeys.ID, id)
@@ -40,7 +40,7 @@ export default function RegisterPage() {
         alert('There was a problem. Please try again later.')
       }
     },
-    [router],
+    [router]
   )
 
   return (

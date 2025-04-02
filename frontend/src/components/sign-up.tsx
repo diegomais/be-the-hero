@@ -26,7 +26,7 @@ export default function SignUpTemplate({ onSubmit }: Props) {
       e.preventDefault()
       onSubmit({ city, email, name, state, whatsapp })
     },
-    [city, email, name, onSubmit, state, whatsapp],
+    [city, email, name, onSubmit, state, whatsapp]
   )
 
   return (

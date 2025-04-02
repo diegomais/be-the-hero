@@ -17,7 +17,7 @@ export default function SignInTemplate({ onSubmit }: Props) {
       e.preventDefault()
       onSubmit({ id })
     },
-    [id, onSubmit],
+    [id, onSubmit]
   )
 
   return (
