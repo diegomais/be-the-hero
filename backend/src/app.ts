@@ -2,7 +2,7 @@ import { errors } from 'celebrate';
 import cors from 'cors';
 import express from 'express';
 
-import routes from '@/routes';
+import routes from './routes';
 
 const app = express();
 

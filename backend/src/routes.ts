@@ -1,10 +1,10 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import express from 'express';
 
-import IncidentController from '@/controllers/incidents.controller';
-import NgoController from '@/controllers/ngos.controller';
-import ProfileController from '@/controllers/profile.controller';
-import SessionController from '@/controllers/sessions.controller';
+import IncidentController from './controllers/incidents.controller';
+import NgoController from './controllers/ngos.controller';
+import ProfileController from './controllers/profile.controller';
+import SessionController from './controllers/sessions.controller';
 
 const routes = express.Router();
 

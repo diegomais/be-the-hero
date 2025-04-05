@@ -1,4 +1,4 @@
-import generateUniqueId from '@/utils/generate-unique-id';
+import generateUniqueId from '../../src/utils/generate-unique-id';
 
 describe('Generate Unique ID', () => {
   it('should generate an unique ID', () => {
