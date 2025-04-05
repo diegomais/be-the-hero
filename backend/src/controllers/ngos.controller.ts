@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import connection from '@/database/connection';
-import generateUniqueId from '@/utils/generate-unique-id';
+import connection from '../database/connection';
+import generateUniqueId from '../utils/generate-unique-id';
 
 interface Ngo {
   id: string;

@@ -1,7 +1,7 @@
 import request from 'supertest';
 
-import app from '@/app';
-import connection from '@/database/connection';
+import app from '../../src/app';
+import connection from '../../src/database/connection';
 
 describe('/sessions', () => {
   beforeAll(async () => {
