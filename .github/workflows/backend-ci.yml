@@ -66,6 +66,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Run tests
         run: ${{ steps.detect-package-manager.outputs.runner }} test:cov
+      - name: Build project
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4
         with:
