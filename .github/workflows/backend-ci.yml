@@ -69,7 +69,7 @@ jobs:
       - name: Build project
         run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v4
+        uses: SonarSource/sonarqube-scan-action@v6
         with:
           projectBaseDir: backend
         env:
